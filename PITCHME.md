@@ -2,6 +2,8 @@
 
 What is a ruby method?
 
++++
+
 ```ruby
 def method
   binding.pry

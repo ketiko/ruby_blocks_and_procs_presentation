@@ -35,27 +35,16 @@ Implicit
 def do_something
   yield
 end
-
 do_something { puts "Inside do_something" }
-```
 
-Implicit with value
-
-```ruby
 def do_something
   yield "A"
 end
-
 do_something { |value | puts value } #=> "A"
-```
 
-Implicit with param
-
-```ruby
 def do_something(value)
   yield value
 end
-
 do_something("A") { |value | puts value } #=> "A"
 ```
 

@@ -236,6 +236,23 @@ proc_test # calling proc_test prints nothing
 
 +++
 
+Closure gotchas
+
+```ruby
+def call_proc(my_proc)
+  count = 500
+  my_proc.call
+end
+
+count   = 1
+my_proc = Proc.new { puts count }
+
+call_proc(my_proc) #=> 1
+```
+
+> It would seem like 500 is the most logical conclusion, but because of the binding effect this will print 1.
++++
+
 # Bindings
 
 ---

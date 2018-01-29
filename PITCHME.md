@@ -254,6 +254,10 @@ call_proc(my_proc) #=> 1
 
 > When you create a Binding object via the binding method, you are creating an ‘anchor’ to this point in the code. Every variable, method and class defined at this point will be available later via this object, even if you are in a completely different scope.
 
++++
+
+Binding method (Pry monkey patches *binding* to drop you into that context)
+
 ```ruby
 def return_binding
   foo = 100

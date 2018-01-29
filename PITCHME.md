@@ -204,6 +204,8 @@ Lambdas and procs treat the ‘return’ keyword differently
 
 +++
 
+Lambdas
+
 > ‘return’ inside of a lambda triggers the code right outside of the lambda code
 
 ```ruby
@@ -217,6 +219,8 @@ lambda_test # calling lambda_test prints 'Hello World'
 ```
 
 +++
+
+Procs
 
 > ‘return’ inside of a proc triggers the code outside of the method where the proc is being executed
 

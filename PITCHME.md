@@ -145,4 +145,26 @@ something.call  #=> "From Proc"
 
 something = Proc.new { |v| puts v } # Param is inside the block
 something.call("From Param")  #=> "From Param"
+
+something = Proc.new { |v| puts v }
+[1,2,3].each(&something) #=> 1 2 3
 ```
+
++++
+
+> In fact, ruby allows you to pass any object to a method as if it were a block. The method will try to use the passed in object if it’s already a block but if it’s not a block it will call to_proc on it in an attempt to convert it to a block.
+
++++
+
+```ruby
+[1,2,3].each(&to_s) #=> "1" "2" "3"
+["1","2","3"].each(&to_i) #=> 1 2 3
+```
+
+---
+
+# Differences
+
+* Arity
+* Closures
+* Bindings

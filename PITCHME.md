@@ -9,7 +9,7 @@ What are they?
 
 +++
 
-Basically they are a way to defer execution of code like you would a method. Sometimes called anonymous methods
+Basically they are a way to defer execution of code like you would a method. Sometimes called anonymous methods.
 
 +++
 
@@ -28,6 +28,70 @@ end
 How do you define them?
 
 +++
+
+Implicit
+
+```ruby
+def do_something
+  yield
+end
+
+do_something { puts "Inside do_something" }
+```
+
+Implicit with value
+
+```ruby
+def do_something
+  yield "A"
+end
+
+do_something { |value | puts value }
+# "A"
+```
+
++++
+
+Implicit with param
+
+```ruby
+def do_something(value)
+  yield value
+end
+
+do_something("A") { |value | puts value }
+# "A"
+```
+
++++
+
+Implicit Conditionally
+
+```ruby
+def try
+  if block_given?
+    yield
+  else
+    "no block"
+  end
+end
+
+try                  #=> "no block"
+try { "hello" }      #=> "hello"
+try do "hello" end   #=> "hello"
+```
+
++++
+
+Explicit Blocks with __&block__
+
+```
+def my_method(&block)
+  block.call
+end
+
+my_method { puts "Hello!" }
+```
 
 ---
 

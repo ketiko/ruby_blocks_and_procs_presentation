@@ -1,4 +1,12 @@
-# Block and Procs
+# Blocks Procs and Lambdas
+
++++
+
+# ~~Blocks~~ Procs and Lambdas
+
++++
+
+# ~~Blocks~~ Procs and ~~Lambdas~~
 
 What is a ruby method?
 

@@ -27,6 +27,8 @@ end
 
 How do you define them?
 
+Implict and Explicitly
+
 +++
 
 Implicit
@@ -35,17 +37,17 @@ Implicit
 def do_something
   yield
 end
-do_something { puts "Inside do_something" }
+do_something { puts "From Block" } #=> "From Block"
 
 def do_something
-  yield "A"
+  yield "From Method"
 end
-do_something { |value | puts value } #=> "A"
+do_something { |value | puts value } #=> "From Method"
 
 def do_something(value)
   yield value
 end
-do_something("A") { |value | puts value } #=> "A"
+do_something("From Param") { |value | puts value } #=> "From Param"
 ```
 
 +++

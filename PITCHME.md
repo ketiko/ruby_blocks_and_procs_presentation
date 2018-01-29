@@ -246,6 +246,11 @@ proc_test # calling proc_test prints nothing
 * Lambdas are a special kind of Proc with a *lambda?* flag
 * Implict Procs are created with *yield*
 * You can implicity pass a Proc to a method with *&block*
+
+---
+
+# Summary
+
 * Lambdas check the number of arguments, while Procs do not
 * Lambdas and Procs treat the *return* keyword differently
 * You can convert a method to a proc with *to_proc* # [1,2].each(&to_s)

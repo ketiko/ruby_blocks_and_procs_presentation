@@ -27,35 +27,35 @@ end
 
 How do you define them?
 
-*Implict* and *Explicitly*
+*Implictly* and *Explicitly*
 
 +++
 
-Implicit
+Implicitly
 
 ```ruby
-def do_something
+def method
   yield
 end
-do_something { puts "From Block" } #=> "From Block"
+method { puts "From Block" } #=> "From Block"
 
-def do_something
+def method
   yield "From Method"
 end
-do_something { |value | puts value } #=> "From Method"
+method { |v | puts v } #=> "From Method"
 
-def do_something(value)
-  yield value
+def method(v)
+  yield v
 end
-do_something("From Param") { |value | puts value } #=> "From Param"
+method("From Param") { |v | puts v } #=> "From Param"
 ```
 
 +++
 
-Implicit Conditionally
+Conditionally
 
 ```ruby
-def try
+def method
   if block_given?
     yield
   else
@@ -63,47 +63,39 @@ def try
   end
 end
 
-try                  #=> "no block"
-try { "hello" }      #=> "hello"
-try do "hello" end   #=> "hello"
+method                  #=> "no block"
+method { "hello" }      #=> "hello"
+method do "hello" end   #=> "hello"
 ```
 
 +++
 
-Explicit Blocks with __&block__
+Explicitly
 
-```
-def my_method(&block)
+```ruby
+def method(&block)
   block.call
 end
+method { puts "From Block" } #=> "From Block"
 
-my_method { puts "Hello!" }
-```
+def method(&block)
+  block.call "From Method"
+end
+method { |v | puts v } #=> "From Method"
 
----
-
-# Blocks Procs and Lambdas
-
-Block Syntax:
-
-```ruby
-{ "a block" } # Single Line
-
-do
-  "another block"
-end # Multi Line
+def method(v, &block)
+  block.call v
+end
+method("From Param") { |v | puts v } #=> "From Param"
 ```
 
 +++
 
-But is that valid syntax?
+How about outside a method?
 
 ```ruby
-{ "a block" } # Raise SyntaxError
-
-do
-  "another block"
-end # Raises SyntaxError
+{ puts "A" }     #=> SyntaxError raised
+do puts "A" end  #=> SyntaxError raised
 ```
 
 ---
@@ -111,6 +103,22 @@ end # Raises SyntaxError
 # ~~Blocks~~ Procs and Lambdas
 
 +++
+
+Lambdas
+
+```ruby
+something = lambda { puts "From Lambda" }
+something.call  #=> "From Lambda"
+
+something = lambda { |v| puts v }
+something.call("From Param")  #=> "From Param"
+
+something = -> { puts "From Lambda" }
+something.call  #=> "From Lambda"
+
+something = -> (v) { puts v }
+something.call("From Param")  #=> "From Param"
+```
 
 # ~~Blocks~~ Procs and ~~Lambdas~~
 

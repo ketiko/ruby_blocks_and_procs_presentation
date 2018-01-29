@@ -53,7 +53,6 @@ method("From Param") { |v | puts v } #=> "From Param"
 +++
 
 Conditionally with *block_given?*
-
 ```ruby
 def method
   if block_given?
@@ -67,6 +66,7 @@ method                  #=> "no block"
 method { "hello" }      #=> "hello"
 method do "hello" end   #=> "hello"
 ```
+ *yield* will raise "no block given" if not called with a block so use *block_given?* to check
 
 +++
 
@@ -213,7 +213,7 @@ def lambda_test
   puts "Hello world"
 end
 
-lambda_test                 # calling lambda_test prints 'Hello World'
+lambda_test # calling lambda_test prints 'Hello World'
 ```
 
 +++
@@ -227,7 +227,7 @@ def proc_test
   puts "Hello world"
 end
 
-proc_test                 # calling proc_test prints nothing
+proc_test # calling proc_test prints nothing
 ```
 
 +++
@@ -236,6 +236,14 @@ proc_test                 # calling proc_test prints nothing
 
 ---
 
-# Gotcahs
+# Gotchas
 
-* *yield* will raise "no block given" if not called with a block so use *block_given?* to check
+# Summary
+
+* Blocks are just syntax for creating Lambdas and Procs
+* Lambdas are a special kind of Proc with a *lambda?* flag
+* Implict Procs are created with *yield*
+* You can implicity pass a Proc to a method with *&block*
+* Lambdas check the number of arguments, while Procs do not
+* Lambdas and Procs treat the *return* keyword differently
+* You can convert a method to a proc with *to_proc* # [1,2].each(&to_s)

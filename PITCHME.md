@@ -27,7 +27,7 @@ end
 
 How do you define them?
 
-Implict and Explicitly
+*Implict* and *Explicitly*
 
 +++
 

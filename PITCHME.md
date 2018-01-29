@@ -147,7 +147,7 @@ something = Proc.new { |v| puts v } # Param is inside the block
 something.call("From Param")  #=> "From Param"
 
 something = Proc.new { |v| puts v }
-[1,2,3].each(&something) #=> 1 2 3
+[1,2,3].each(&:something) #=> 1 2 3
 ```
 
 +++
@@ -156,15 +156,15 @@ something = Proc.new { |v| puts v }
 
 +++
 
-Automatically calling a method as a proc
+Automatically calling a method as a proc with a symbol
 
 ```ruby
-[1,2,3].each(&to_s) #=> "1" "2" "3"
+[1,2,3].each(&:to_s) #=> "1" "2" "3"
 
 # Really converts to
 [1,2,3].each { |v| v.to_s }
 
-["1","2","3"].each(&to_i) #=> 1 2 3
+["1","2","3"].each(&:to_i) #=> 1 2 3
 
 # Really converts to
 ["1","2","3"].each { |v| v.to_i }
@@ -255,6 +255,25 @@ call_proc(my_proc) #=> 1
 
 # Bindings
 
+> When you create a Binding object via the binding method, you are creating an ‘anchor’ to this point in the code. Every variable, method and class defined at this point will be available later via this object, even if you are in a completely different scope.
+
+```ruby
+def return_binding
+  foo = 100
+  binding
+end
+
+# Foo is available thanks to the binding,
+# even though we are outside of the method
+# where it was defined.
+puts return_binding.class
+puts return_binding.eval('foo')
+
+# If you try to print foo directly you will get an error.
+# The reason is that foo was never defined outside of the method.
+puts foo
+```
+
 ---
 
 # Summary
@@ -270,4 +289,4 @@ call_proc(my_proc) #=> 1
 
 * Lambdas check the number of arguments, while Procs do not
 * Lambdas and Procs treat the *return* keyword differently
-* You can convert a method to a proc with *to_proc* # [1,2].each(&to_s)
+* You can convert a method to a proc with *to_proc* # [1,2].each(&:to_s)

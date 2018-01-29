@@ -158,7 +158,14 @@ something = Proc.new { |v| puts v }
 
 ```ruby
 [1,2,3].each(&to_s) #=> "1" "2" "3"
+
+# Really converts to
+[1,2,3].each { |v| v.to_s }
+
 ["1","2","3"].each(&to_i) #=> 1 2 3
+
+# Really converts to
+["1","2","3"].each { |v| v.to_i }
 ```
 
 ---

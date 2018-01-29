@@ -56,8 +56,7 @@ def do_something(value)
   yield value
 end
 
-do_something("A") { |value | puts value }
-# "A"
+do_something("A") { |value | puts value } #=> "A"
 ```
 
 +++

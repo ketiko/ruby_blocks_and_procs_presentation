@@ -156,6 +156,8 @@ something = Proc.new { |v| puts v }
 
 +++
 
+Automatically calling a method as a proc
+
 ```ruby
 [1,2,3].each(&to_s) #=> "1" "2" "3"
 

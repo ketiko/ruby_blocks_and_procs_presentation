@@ -135,6 +135,8 @@ something.class  #=> Proc < Object
 
 # ~~Blocks~~ Procs and ~~Lambdas~~
 
++++
+
 Procs
 
 ```ruby

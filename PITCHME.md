@@ -236,11 +236,9 @@ proc_test # calling proc_test prints nothing
 
 +++
 
-* Bindings
+# Bindings
 
 ---
-
-# Gotchas
 
 # Summary
 

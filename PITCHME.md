@@ -145,9 +145,6 @@ something.call  #=> "From Proc"
 
 something = Proc.new { |v| puts v } # Param is inside the block
 something.call("From Param")  #=> "From Param"
-
-something = Proc.new { |v| puts v }
-[1,2,3].each(&:something) #=> 1 2 3
 ```
 
 +++

@@ -120,23 +120,27 @@ something = -> (v) { puts v } # Param is before the block like a method definiti
 something.call("From Param")  #=> "From Param"
 ```
 
++++
+
+So what are lambdas?
+
+```ruby
+something = lambda { puts "From Lambda" }
+something.class  #=> Proc < Object
+```
+
+*WHAT?!*
+
 ---
 
 # ~~Blocks~~ Procs and ~~Lambdas~~
 
-What is a ruby method?
-
-+++
+Procs
 
 ```ruby
-def method
-  binding.pry
-end
+something = Proc.new { puts "From Proc" }
+something.call  #=> "From Proc"
+
+something = Proc.new { |v| puts v } # Param is inside the block
+something.call("From Param")  #=> "From Param"
 ```
-
-Note:
-Remember to explain this.
-
----
-
-# The End

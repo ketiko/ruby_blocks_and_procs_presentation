@@ -46,11 +46,8 @@ def do_something
   yield "A"
 end
 
-do_something { |value | puts value }
-# "A"
+do_something { |value | puts value } #=> "A"
 ```
-
-+++
 
 Implicit with param
 

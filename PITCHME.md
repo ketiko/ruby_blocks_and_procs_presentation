@@ -202,7 +202,9 @@ proc.call(1,2,3)               # prints out 1 and forgets about the extra argume
 
 Lambdas and procs treat the ‘return’ keyword differently
 
-‘return’ inside of a lambda triggers the code right outside of the lambda code
++++
+
+> ‘return’ inside of a lambda triggers the code right outside of the lambda code
 
 ```ruby
 def lambda_test
@@ -214,7 +216,9 @@ end
 lambda_test                 # calling lambda_test prints 'Hello World'
 ```
 
-‘return’ inside of a proc triggers the code outside of the method where the proc is being executed
++++
+
+> ‘return’ inside of a proc triggers the code outside of the method where the proc is being executed
 
 ```ruby
 def proc_test

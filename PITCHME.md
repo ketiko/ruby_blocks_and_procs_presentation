@@ -31,7 +31,7 @@ How do you define them?
 
 +++
 
-Implicitly
+Implicitly using *yield*
 
 ```ruby
 def method
@@ -52,7 +52,7 @@ method("From Param") { |v | puts v } #=> "From Param"
 
 +++
 
-Conditionally
+Conditionally with *block_given?*
 
 ```ruby
 def method
@@ -70,11 +70,11 @@ method do "hello" end   #=> "hello"
 
 +++
 
-Explicitly
+Explicitly with *&block*
 
 ```ruby
 def method(&block)
-  block.call
+  block.call # You must now explicity call the block to execute
 end
 method { puts "From Block" } #=> "From Block"
 
@@ -83,7 +83,7 @@ def method(&block)
 end
 method { |v | puts v } #=> "From Method"
 
-def method(v, &block)
+def method(v, &block)  # &block has to be last param
   block.call v
 end
 method("From Param") { |v | puts v } #=> "From Param"
@@ -110,15 +110,17 @@ Lambdas
 something = lambda { puts "From Lambda" }
 something.call  #=> "From Lambda"
 
-something = lambda { |v| puts v }
+something = lambda { |v| puts v } # Param is inside the block
 something.call("From Param")  #=> "From Param"
 
 something = -> { puts "From Lambda" }
 something.call  #=> "From Lambda"
 
-something = -> (v) { puts v }
+something = -> (v) { puts v } # Param is before the block like a method definition
 something.call("From Param")  #=> "From Param"
 ```
+
+---
 
 # ~~Blocks~~ Procs and ~~Lambdas~~
 

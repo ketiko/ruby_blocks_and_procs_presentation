@@ -16,9 +16,9 @@ Basically they are a way to defer execution of code like you would a method. Som
 Examples:
 
 ```ruby
-(1..4).map { |num| num + 1 }
+(1..4).map { |num| num + 1 }  # Single Line
 
-it 'is some test' do
+it 'is some test' do          # Multiline
   expect(true).to be_falsey
 end
 ```

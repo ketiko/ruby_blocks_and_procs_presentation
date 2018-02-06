@@ -124,6 +124,7 @@ So what are lambdas?
 ```ruby
 something = lambda { puts "From Lambda" }
 something.class  #=> Proc < Object
+something.lambda?  #=> true
 ```
 
 *WHAT?!*
@@ -264,8 +265,8 @@ end
 # Foo is available thanks to the binding,
 # even though we are outside of the method
 # where it was defined.
-puts return_binding.class
-puts return_binding.eval('foo')
+puts return_binding.class #=> Binding < Object
+puts return_binding.eval('foo') #=> 100
 
 # If you try to print foo directly you will get an error.
 # The reason is that foo was never defined outside of the method.
@@ -306,7 +307,7 @@ end
 puts [1,2,3]
   .map { |i| i * 2 }
   .tap { |array| puts "Array size: #{array.count}" }
-  .join #=> 246
+  .join #=> "246"
 ```
 +++
 

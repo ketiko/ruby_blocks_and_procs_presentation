@@ -293,7 +293,7 @@ RSpec.configure do |config|
 end
 ```
 
----
++++
 
 *tap* method
 
@@ -308,6 +308,7 @@ puts [1,2,3]
   .tap { |array| puts "Array size: #{array.count}" }
   .join #=> 246
 ```
++++
 
 *tap* method
 

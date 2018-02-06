@@ -279,7 +279,7 @@ puts foo
 ```ruby
 module RSpec
   def self.configuration
-    @configureation
+    @configuration
   end
 
   def self.configure do
@@ -302,6 +302,11 @@ def tap
   yield(self)
   self
 end
+
+puts [1,2,3]
+  .map { |i| i * 2 }
+  .tap { |array| puts "Array size: #{array.count}" }
+  .join #=> 246
 
 class Person
   attr_accessor :name, :age

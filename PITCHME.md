@@ -333,7 +333,7 @@ end
 * Implict Procs are created with *yield*
 * You can implicity pass a Proc to a method with *&block*
 
----
++++
 
 # Summary
 

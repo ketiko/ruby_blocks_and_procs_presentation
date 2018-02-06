@@ -39,12 +39,12 @@ method { puts "From Block" } #=> "From Block"
 def method
   yield "From Method"
 end
-method { |v | puts v } #=> "From Method"
+method { |v| puts v } #=> "From Method"
 
 def method(v)
   yield v
 end
-method("From Param") { |v | puts v } #=> "From Param"
+method("From Param") { |v| puts v } #=> "From Param"
 ```
 
 +++
@@ -78,12 +78,12 @@ method { puts "From Block" } #=> "From Block"
 def method(&block)
   block.call "From Method"
 end
-method { |v | puts v } #=> "From Method"
+method { |v| puts v } #=> "From Method"
 
 def method(v, &block)  # &block has to be last param
   block.call v
 end
-method("From Param") { |v | puts v } #=> "From Param"
+method("From Param") { |v| puts v } #=> "From Param"
 ```
 
 +++

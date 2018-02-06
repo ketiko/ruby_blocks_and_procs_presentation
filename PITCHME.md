@@ -277,29 +277,32 @@ puts foo
 ## Cool things you can do
 
 ```ruby
-class Person
-  attr_accessor :name, :age
+module RSpec
+  def self.configuration
+    @configureation
+  end
 
-  def initialize
-    yield(self) if block_given?
+  def self.configure do
+    yield(configuration) if block_given?
   end
 end
 
-sam = Person.new do |p|
-  p.name = "Same"
-  p.age = 30
+RSpec.configure do |config|
+  config.seed = rand(10000)
+  config.other_option = true
 end
-
-bob = Person.new
-bob.name = "Same"
-bob.age = 30
 ```
 
 ---
 
-This is also known as the *tap* method
+*tap* method
 
 ```ruby
+def tap
+  yield(self)
+  self
+end
+
 class Person
   attr_accessor :name, :age
 end

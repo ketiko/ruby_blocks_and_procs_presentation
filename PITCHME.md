@@ -307,7 +307,11 @@ puts [1,2,3]
   .map { |i| i * 2 }
   .tap { |array| puts "Array size: #{array.count}" }
   .join #=> 246
+```
 
+*tap* method
+
+```ruby
 class Person
   attr_accessor :name, :age
 end
